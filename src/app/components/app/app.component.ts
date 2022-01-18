@@ -10,6 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AppComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
+  get currentUser() {
+    return this.authService.currentUser;
+  }
+
   logOut() {
     this.authService.logOut();
 

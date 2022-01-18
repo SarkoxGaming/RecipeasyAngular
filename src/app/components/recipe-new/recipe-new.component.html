@@ -1,0 +1,29 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-10 offset-sm-1 ">
+      <form class="row g-3" [formGroup]="addRecipeForm" (ngSubmit)="addRecipe()">
+        <div class="form-group">
+          <input type="text" placeholder="Name" class="form-control" formControlName="name"
+          [class.is-invalid]="addRecipeForm.get('name')?.invalid && addRecipeForm.get('name')?.dirty && addRecipeForm.get('name')?.touched">
+          <div class="invalid-feedback text-left"> {{ 'Name can\'t be empty' }}</div>
+        </div>
+
+        <div class="form-group">
+          <textarea type="text" placeholder="Description" class="form-control" formControlName="description"
+          [class.is-invalid]="addRecipeForm.get('description')?.invalid && addRecipeForm.get('description')?.dirty && addRecipeForm.get('description')?.touched"></textarea>
+          <div class="invalid-feedback text-left"> {{ 'Description cant be empty' }}</div>
+        </div>
+
+        <div class="form-group">
+          <input type="number" placeholder="Categorie" class="form-control" formControlName="categorie"
+          [class.is-invalid]="addRecipeForm.get('categorie')?.invalid && addRecipeForm.get('categorie')?.dirty && addRecipeForm.get('categorie')?.touched">
+          <div class="invalid-feedback text-left"> {{ 'Categorie can\'t be empty' }}</div>
+        </div>
+
+        <button [disabled]="addRecipeForm.invalid" class="btn btn-success btn-block" type="submit">Add</button>
+
+        <a routerLink="/recipes" class="btn btn-sm btn-outline-secondary mt-4" role="button">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>

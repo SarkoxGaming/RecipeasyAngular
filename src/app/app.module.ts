@@ -14,6 +14,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UsersListItemComponent } from './components/users-list-item/users-list-item.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
+import { RecipesListItemComponent } from './components/recipes-list-item/recipes-list-item.component';
+import { RecipeNewComponent } from './components/recipe-new/recipe-new.component';
+import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ProfileComponent,
     UsersListComponent,
     UsersListItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RecipesListComponent,
+    RecipesListItemComponent,
+    RecipeNewComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,
