@@ -6,10 +6,10 @@ import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup-page',
-  templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.css']
+  templateUrl: './signup.page.html',
+  styleUrls: ['./signup.page.css']
 })
-export class SignupPageComponent implements OnInit {
+export class SignupPage implements OnInit {
   signupForm: FormGroup;
   uniqueEmailError: string | null = null;
 
@@ -49,7 +49,7 @@ export class SignupPageComponent implements OnInit {
       this.signupForm.get('email')?.updateValueAndValidity();
     }
   }
-  
+
   private setUniqueEmailError(isUsed: boolean) {
     this.uniqueEmailError = isUsed ? 'This email is already used!' : null;
     this.signupForm.get('email')?.setErrors(isUsed ? { emailNotUnique: true } : null);

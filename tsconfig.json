@@ -12,6 +12,12 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
+    "paths": {
+      "n": [
+        "dist/n/n",
+        "dist/n"
+      ]
+    },
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

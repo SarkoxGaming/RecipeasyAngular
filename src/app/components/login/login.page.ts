@@ -5,15 +5,15 @@ import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPage implements OnInit {
   loginForm: FormGroup;
   passwordControl: FormControl;
   authError: string | null = null;
-  
-  constructor(private authService: AuthService, private router: Router) { 
+
+  constructor(private authService: AuthService, private router: Router) {
     this.passwordControl = new FormControl(null, [Validators.required, Validators.minLength(3)])
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
