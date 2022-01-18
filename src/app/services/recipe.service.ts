@@ -7,6 +7,7 @@ import { User } from '../models/user.model';
 })
 export class RecipeService {
 
+
   private readonly CURRENT_USER_KEY = 'recipeasy.currentUser';
   private readonly RECIPES_KEY = 'recipeasy.recipes';
 
@@ -16,7 +17,6 @@ export class RecipeService {
     const storedRecipes = JSON.parse(localStorage.getItem(this.RECIPES_KEY) ?? 'null');
 
     if (storedRecipes) {
-      console.log(storedRecipes)
       userRecipes = (storedRecipes as Recipe[]).map(obj =>
         new Recipe(obj)
       ).filter(obj => obj.user.email == user.email);
@@ -42,6 +42,19 @@ export class RecipeService {
     let Recipes = this.recipes;
 
     Recipes.push(recipe);
+    localStorage.setItem(this.RECIPES_KEY, JSON.stringify(Recipes));
+
+    return true;
+  }
+
+  deleteRecipe(recipe: Recipe): boolean {
+    let Recipes = this.recipes;
+
+    const index = Recipes.findIndex(obj => obj.id == recipe.id );
+    if (index > -1) {
+      Recipes.splice(index, 1);
+    }
+
     localStorage.setItem(this.RECIPES_KEY, JSON.stringify(Recipes));
 
     return true;

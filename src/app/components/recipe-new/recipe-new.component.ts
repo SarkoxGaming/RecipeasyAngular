@@ -27,10 +27,9 @@ export class RecipeNewComponent implements OnInit {
   }
 
   addRecipe(): void {
-    console.log(this.addRecipeForm.value);
     this.addRecipeForm.value.id = Math.random().toString(16).substring(2);
     this.addRecipeForm.value.user = this.authService.currentUser;
-    console.log(this.addRecipeForm.value);
+    this.addRecipeForm.value.categorie = +this.addRecipeForm.value.categorie;
     if (this.recipeService.addRecipe(new Recipe(this.addRecipeForm.value))) {
       this.router.navigate(['/recipes']);
     }

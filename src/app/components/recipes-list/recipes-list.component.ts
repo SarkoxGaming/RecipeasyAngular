@@ -23,12 +23,14 @@ export class RecipesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.recipes);
   }
 
-  recipeClicked(recipe: Recipe) {
+  recipeEditClicked(recipe: Recipe) {
     this.router.navigate(['/recipes', recipe.id]);
+  }
 
+  recipeDeleteClicked(recipe: Recipe) {
+    this.recipeService.deleteRecipe(recipe);
   }
 
 }

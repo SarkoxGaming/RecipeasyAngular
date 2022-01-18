@@ -21,6 +21,9 @@
             <li>
                 <button *ngIf="!!currentUser" type="button" (click)="logOut()"  class="btn btn-outline-light">Log out</button>
             </li>
+            <li>
+              <a routerLink="/login"><button *ngIf="!currentUser" type="button" class="btn btn-outline-light">Log in</button></a>
+            </li>
           </ul>
         </div>
       </div>

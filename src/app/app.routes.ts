@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { HomePage } from "./components/home/home.page";
 import { LoginPage } from "./components/login/login.page";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { ProfileComponent } from "./components/profile/profile.component";
@@ -9,7 +10,8 @@ import { SignupPage } from "./components/signup/signup.page";
 
 
 export const AppRoute: Routes = [
-    { path: '', component: LoginPage },
+    { path: '', component: HomePage },
+    { path: 'login', component: LoginPage },
     { path: 'signup', component: SignupPage },
     { path: 'recipes', component: RecipesComponent, children: [
       {

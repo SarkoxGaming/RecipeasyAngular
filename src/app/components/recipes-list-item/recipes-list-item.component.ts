@@ -9,14 +9,18 @@ import { Recipe } from 'src/app/models/recipe.model';
 export class RecipesListItemComponent implements OnInit {
 
   @Input() recipe!: Recipe;
-  @Output() recipeClicked = new EventEmitter();
+  @Output() recipeEditClicked = new EventEmitter();
+  @Output() recipeDeleteClicked = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  clicked() {
-    this.recipeClicked.emit(this.recipe);
+  edit() {
+    this.recipeEditClicked.emit(this.recipe);
+  }
+  delete() {
+    this.recipeDeleteClicked.emit(this.recipe);
   }
 }

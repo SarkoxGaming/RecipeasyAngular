@@ -1,8 +1,11 @@
+
+
 <div *ngIf="recipes.length == 0; else showTable">
   You don't have any recipe!
 </div>
 
-<a routerLink="new"><button class="btn btn-success pull-right" >Add a Recipe</button></a>
+<a routerLink="new"><button class="btn btn-success pull-right m-3" >Add a Recipe</button></a>
+
 <router-outlet></router-outlet>
 
 <ng-template #showTable>
@@ -14,10 +17,14 @@
         <th>Name</th>
         <th>Description</th>
         <th>Categorie</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let recipe of recipes" app-recipes-list-item [recipe]="recipe" (recipeClicked)="recipeClicked($event)"></tr>
+      <tr *ngFor="let recipe of recipes" app-recipes-list-item [recipe]="recipe"
+        (recipeEditClicked)="recipeEditClicked($event)"
+        (recipeDeleteClicked)="recipeDeleteClicked($event)"></tr>
     </tbody>
   </table>
 </ng-template>
+
